@@ -18,7 +18,7 @@ new Tabular.Table({
             title: "Role Selector",
             render: function(val, type, doc) {
               if (val) {
-                return `<select name="userRole" id=edit-`+ val +`>
+                return `<select name="taskRole" id=edit-`+ val +`>
                 <option value="admin" id=admi-`+ val +`>Admin</option>
                 <option value="manager" id=mana-`+ val +`>Manager</option>
                 <option value="brand" id=bran-`+ val +`>Brand</option>
@@ -32,3 +32,27 @@ new Tabular.Table({
     ]
 });
 
+new Tabular.Table({
+    name: "Users",
+    collection: Meteor.users,
+    columns: [
+      {data: "_id", title: "ID"},
+      {data: "username", title: "Username"},
+      {
+        data: "_id", 
+        title: "Role Selector",
+        render: function(val, type, doc) {
+          if (val) {
+            return `<select name="userRole" id=edit-`+ val +`>
+            <option value="admin" id=admi-`+ val +`>Admin</option>
+            <option value="manager" id=mana-`+ val +`>Manager</option>
+            <option value="brand" id=bran-`+ val +`>Brand</option>
+            <option value="creator" id=crea-`+ val +`>Creator</option>
+            <option value="software" id=soft-`+ val +`>Software</option>
+            <option value="remove" id=remo-`+ val +`>None</option>
+          </select>`  //should remove the if I think
+          }
+        }
+      },
+    ]
+});

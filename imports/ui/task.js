@@ -7,7 +7,7 @@ Template.task.events({
     'click .delete'() {
         Tasks.remove(this._id);
     },
-    'change [name="userRole1"]'() {
+    'change [name="taskRole1"]'() {
         var selectValue = event.target.value;
         console.log("first: " + selectValue + " " + this._id);
         // Tasks.update(this._id, { $set: { roles: 'creator' } });

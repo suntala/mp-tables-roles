@@ -29,13 +29,20 @@ Template.body.events({
 
         target.name.value = '';
     },
-    'change [name="userRole"]'(evt) {
+    'change [name="taskRole"]'(evt) {
         var _taskid;
         _taskid = evt.target.id.substring(5);
         var task = Tasks.findOne(_taskid)
         var selectValue = evt.target.value;
         console.log("second: " + selectValue + " " + task._id);
         Tasks.update(task._id, { $set: { roles: selectValue } });
+    },
+    'change [name="userRole"]'(evt) {
+        var _userid;
+        _userid = evt.target.id.substring(5);
+        var user = Meteor.users.findOne(_userid)
+        var selectValue = evt.target.value;
+        console.log("About users: " + selectValue + " --> " + Object.keys(user));
     }
 })
 

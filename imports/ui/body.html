@@ -2,6 +2,7 @@
     <div class="container">
         <header>
             <h1>Todo List</h1>
+            {{> loginButtons}}
             <form class="new-task">
                 <input type="text" name="name" placeholder="Type to add a new task" />
             </form>
@@ -13,6 +14,10 @@
             {{/each}}
         </ul>
 
+        <h3>Tasks Table</h3>
         {{> tabular table=TabularTables.Tasks class="table table-striped table-bordered table-condensed"}}
+
+        <h3>Users Table</h3>
+        {{> tabular table=TabularTables.Users class="table table-striped table-bordered table-condensed"}}
     </div>
 </body>
