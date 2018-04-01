@@ -1,0 +1,18 @@
+<body>
+    <div class="container">
+        <header>
+            <h1>Todo List</h1>
+            <form class="new-task">
+                <input type="text" name="name" placeholder="Type to add a new task" />
+            </form>
+        </header>
+
+        <ul>
+            {{#each tasks}}
+                {{> task}}
+            {{/each}}
+        </ul>
+
+        {{> tabular table=TabularTables.Tasks class="table table-striped table-bordered table-condensed"}}
+    </div>
+</body>
