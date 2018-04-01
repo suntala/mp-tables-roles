@@ -38,6 +38,7 @@ new Tabular.Table({
     columns: [
       {data: "_id", title: "ID"},
       {data: "username", title: "Username"},
+      {data: "roles", title: "Roles"},
       {
         data: "_id", 
         title: "Role Selector",

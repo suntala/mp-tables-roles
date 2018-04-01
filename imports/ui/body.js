@@ -1,8 +1,12 @@
 import { Template } from 'meteor/templating';
 import { Tasks } from '../api/tasks.js';
+import { Meteor } from 'meteor/meteor';
 
 import './task.js';
 import './body.html';
+// import './methods.js'
+// import '../api/methods.js';  //not sure if this is necessary, works without it...
+
 
 // import '../api/tables.js';
 import '../../tables.js';
@@ -43,6 +47,11 @@ Template.body.events({
         var user = Meteor.users.findOne(_userid)
         var selectValue = evt.target.value;
         console.log("About users: " + selectValue + " --> " + Object.keys(user));
+        // Roles.addUsersToRoles( user._id, 'manager' );
+        Meteor.call( "setRoleOnUser", {
+            user: user._id,
+            role: selectValue
+        })
     }
 })
 
