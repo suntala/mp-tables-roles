@@ -4,6 +4,10 @@ import { Meteor } from 'meteor/meteor';
 
 import './task.js';
 import './body.html';
+// import './dynTab.js';
+import './dynamicTabular.js';
+
+
 // import './methods.js'
 // import '../api/methods.js';  //not sure if this is necessary, works without it...
 
@@ -16,6 +20,9 @@ Template.body.helpers({
     tasks() {
         return Tasks.find({}, { sort: { createdAt: -1 } });
     },
+    // uniqueselector() {
+    //     return {name: "New task"}
+    // }
 });
 
 Template.body.events({
@@ -46,7 +53,8 @@ Template.body.events({
         _userid = evt.target.id.substring(5);
         var user = Meteor.users.findOne(_userid)
         var selectValue = evt.target.value;
-        console.log("About users: " + selectValue + " --> " + Object.keys(user));
+        // console.log("About users: " + selectValue + " --> " + Object.keys(user));
+        // console.log(user)
         // Roles.addUsersToRoles( user._id, 'manager' );
         Meteor.call( "setRoleOnUser", {
             user: user._id,
